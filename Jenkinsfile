@@ -17,8 +17,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                powershell "$Env:GOOS = 'windows'; $Env:GOARCH = 'amd64'; go build -o .\\bin\\semantic-versioning.exe"
-                powershell "$Env:GOOS = 'linux'; $Env:GOARCH = 'amd64'; go build -o .\\bin\\semantic-versioning"
+                bat 'powershell.exe -file .\\build.ps1'
             }
         }
     }
